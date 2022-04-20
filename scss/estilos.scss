@@ -1,0 +1,83 @@
+body {
+	text-decoration: none;
+}
+header {
+	color: darkblue;
+	background-image: linear-gradient(#CAC531, #F3F9A7);
+	text-decoration: none;
+	font-family: 'Concert One', cursive;
+	font-size: 30px;
+	align-items: end;
+	text-align: bottom;
+	text-decoration: none;
+	ul {
+		list-style: none;
+		text-decoration: none;
+		display: flex;
+	}
+	div {
+		text-decoration: none;
+	}
+}
+ul {
+	display: flex;
+	list-style: none;
+	font-size: 1;
+	align-content: flex-end;
+}
+li {
+	a {
+		display: inline-block;
+		color: darkblue;
+		position: relative;
+		font-size: 20px;
+		text-decoration: none;
+		align-items: bottom;
+
+        &:hover {
+            cursor: pointer;
+            background: transparent;
+            border: 2px solid #91C9FF;
+            border-radius: 100px 50px;
+            outline: none;
+            transition: ease-in-out;
+	}
+}
+
+}
+footer {
+	grid-area: footer;
+	color: black;
+	text-decoration: none;
+	background-image: linear-gradient(#CAC531, #F3F9A7);
+	font-family: 'Concert One', cursive;
+	font-size: 16px;
+}
+main {
+	text-align: center;
+	font-family: 'Concert One', cursive;
+}
+.espacio {
+	text-align: left;
+	padding-top: 30px;
+	height: 250px;
+	background-color: whitesmoke;
+	color: black;
+}
+aside {
+	text-align: left;
+	padding: 5px;
+	font-family: 'Concert One', cursive;
+	background-color: whitesmoke;
+}
+.pad {
+	padding-bottom: 20px;
+	border: none;
+}
+form {
+	text-align: left;
+	padding: 20px;
+	font-family: 'Concert One', cursive;
+	background-color: whitesmoke;
+	color: black;
+}
