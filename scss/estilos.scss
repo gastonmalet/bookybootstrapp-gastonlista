@@ -1,6 +1,20 @@
+@mixin alineacion {
+	align-items: end;
+	text-align: bottom;
+	text-decoration: none;
+    margin-bottom: 0px;    
+}
+
 $font: 'Concert One', cursive;
 $background: linear-gradient(#CAC531, #F3F9A7);
 
+$espacio: (
+  color: black,
+  izq: left,
+  fondo: whitesmoke,
+  pad: 30px,
+  altura: 250px,
+);
 
 body {
 	text-decoration: none;
@@ -11,10 +25,7 @@ header {
 	text-decoration: none;
 	font-family: $font;
 	font-size: 30px;
-	align-items: end;
-	text-align: bottom;
-	text-decoration: none;
-    margin-bottom: 0px;
+    @include alineacion;
 
 ul {
 	display: flex;
@@ -64,13 +75,15 @@ main {
 	text-align: center;
 	font-family: $font;
 }
+
 .espacio {
-	text-align: left;
-	padding-top: 30px;
-	height: 250px;
-	background-color: whitesmoke;
-	color: black;
+  background-color: map-get($espacio, fondo);
+  text-align: map-get($espacio, izq);
+  padding-top: map-get($espacio, pad);
+  height:map-get($espacio, altura);
+  color:map-get($espacio, color);
 }
+
 aside {
 	text-align: left;
 	padding: 5px;
@@ -82,11 +95,9 @@ aside {
 	border: none;
 }
 form {
-	text-align: left;
-	padding: 20px;
-	font-family: $font;
-	background-color: whitesmoke;
+	@extend aside;
 	color: black;
+    padding: 20px;
 }
 
 .location {

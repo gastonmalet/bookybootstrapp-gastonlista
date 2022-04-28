@@ -47,13 +47,13 @@ main {
   font-family: "Concert One", cursive; }
 
 .espacio {
+  background-color: whitesmoke;
   text-align: left;
   padding-top: 30px;
   height: 250px;
-  background-color: whitesmoke;
   color: black; }
 
-aside {
+aside, form {
   text-align: left;
   padding: 5px;
   font-family: "Concert One", cursive;
@@ -64,11 +64,8 @@ aside {
   border: none; }
 
 form {
-  text-align: left;
-  padding: 20px;
-  font-family: "Concert One", cursive;
-  background-color: whitesmoke;
-  color: black; }
+  color: black;
+  padding: 20px; }
 
 .location {
   margin-top: 25px; }
