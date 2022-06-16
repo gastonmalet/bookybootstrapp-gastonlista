@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 3,
             nombre: 'Cuaderno Avon',
             precio: 312,
-            imagen: 'imagenes/cuaderno.jpg'
+            imagen: 'imagenes/cuadern.jpg'
         },
 
     ];
