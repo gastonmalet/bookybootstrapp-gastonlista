@@ -11,12 +11,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
-    <title>Servicios de Libreria Booky</title>
+    <title>Productos de Libreria Booky</title>
     <link rel="stylesheet" href="cssestilos/estilos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />    
     <meta name="description" content="Servicios de Libreria Booky Almagro">
     <meta name="keywords"  content="libreria, impresiones, tecnica, comercial, copiado">
     <script src="js/main.js"></script>
+
   </head>
   <body> 
     <header class="navbar navbar-expand-lg navbar-light navcustom"> 
@@ -25,12 +26,12 @@
         <a href="Home.html"><img src="imagenes/logo booky.png" alt="Libreria Booky" width="180px" /></a>
         </div> 
       
-      <div class="col-md-4 animate__animated animate__fadeIn animate__slower animate__infinite">
+      <div class="col-md-4 animate_animated animatefadeIn animateslower animate_infinite">
         <strong width="30px">LIBRERIA BOOKY</strong>
       </div>
         <div class="col-md-6 collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-                        <li><a href="Home.html">Home</a> | <a href="Servicios.html">Servicios</a> | <a href="Quienessomos.html">Quienes Somos</a> | <a href="Noticias.html">Noticias</a> | <a href="Contacto.html">Contacto</a> </li>
+                        <li><a href="Home.html">Home</a> | <a href="Productos.html">Productos</a> | <a href="Quienessomos.html">Quienes Somos</a> | <a href="Noticias.html">Noticias</a> | <a href="Contacto.html">Contacto</a> </li>
               </ul>
         </div>
     </section>
@@ -38,45 +39,25 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     </header> 
-<main class="container-fluid location">
-    <section class="row">
-      <div class="col-md-4">
-      <div><img src="imagenes/papel.JPG" alt="Papel" width="40px"/></div> 
+    <div class="container pad location">
+      <div class="row">
 
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><strong>Centro de copiado </strong></li>
-        <li class="list-group-item">Fotocopias Láser, Color, y B/N
-        </li>
-        <li class="list-group-item">Recepción de trabajos por e-mail</li>
-        <li class="list-group-item">Papelería comercial – Volantes</li>
-      </ul>
-    </div>
-      <div class="col-md-4">
-      <div><img src="imagenes/impresion.JPG" alt="impresion" width="40px"/></div> 
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><strong>Accesorios para impresoras </strong></li>
-        <li class="list-group-item">Tóners (HP – Samsung – originales)
-        </li>
-        <li class="list-group-item">Cartuchos (HP – Epson – originales/genéricos)</li>
-      </ul>
-    </div>
-    <div class="col-md-4">
-        <div><img src="imagenes/comercial.JPG" alt="comercial" width="40px"/></div> 
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item"><strong>Librería comercial</strong></li>
-          <li class="list-group-item">Sellos</li>
-          <li class="list-group-item">Anillados</li>
-          <li class="list-group-item">Plastificados</li>
-          <li class="list-group-item">Útiles escolares y de oficina</li>
-          <li class="list-group-item">Artículos de computación</li>
-          <li class="list-group-item">Agendas</li>
-          <li class="list-group-item">Resmas</li>
-        </ul>
+          <main id="items" class="col-sm-8 row"></main>
+          <!-- Carrito -->
+          <aside class="col-sm-4">
+              <h2>Carrito</h2>
+              <!-- Elementos del carrito -->
+              <ul id="carrito" class="list-group"></ul>
+              <hr>
+              <!-- Precio total -->
+              <p class="text-right">Total: <span id="total"></span>&dollar;;</p>
+              <button id="boton-vaciar" class="btn btn-primary">Vaciar</button>
+              <button a href="#/FinalizaCompra" class="comprar btn btn-primary">Comprar</a></button>
+
+          </aside>
       </div>
+  </div>
 
-    </section>
-    
-    </main>
       <footer class="container-fluid location">
         <section class="row">
           <div class="col-md-2">

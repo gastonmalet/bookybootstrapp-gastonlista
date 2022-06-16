@@ -1,61 +1,144 @@
-let nombreUsuario = prompt("Ingresar nombre de usuario");
+document.addEventListener('DOMContentLoaded', () => {
+    // Variables
+    const baseDeDatos = [
+        {
+            id: 1,
+            nombre: 'Boligrafos',
+            precio: 640,
+            imagen: "imagenes/boligrafos.jpg"
+        },
+        {
+            id: 2,
+            nombre: 'Resma Ledesma A4',
+            precio: 677,
+            imagen: 'imagenes/resmaa.jpg'
+        },
+        {
+            id: 3,
+            nombre: 'Cuaderno Avon',
+            precio: 312,
+            imagen: 'imagenes/cuaderno.jpg'
+        },
 
-      if (nombreUsuario == "") {
-        alert("No ingresaste el nombre de usuario");
+    ];
+
+    let carrito = [];
+    const divisa = '$';
+    const DOMitems = document.querySelector('#items');
+    const DOMcarrito = document.querySelector('#carrito');
+    const DOMtotal = document.querySelector('#total');
+    const DOMbotonVaciar = document.querySelector('#boton-vaciar');
+
+    // Funciones
+    function renderizarProductos() {
+        baseDeDatos.forEach((info) => {
+            // Estructura
+            const miNodo = document.createElement('div');
+            miNodo.classList.add('card', 'col-sm-4');
+            // Body
+            const miNodoCardBody = document.createElement('div');
+            miNodoCardBody.classList.add('card-body');
+            // Titulo
+            const miNodoTitle = document.createElement('h5');
+            miNodoTitle.classList.add('card-title');
+            miNodoTitle.textContent = info.nombre;
+            // Imagen
+            const miNodoImagen = document.createElement('img');
+            miNodoImagen.classList.add('img-fluid');
+            miNodoImagen.setAttribute('src', info.imagen);
+            // Precio
+            const miNodoPrecio = document.createElement('p');
+            miNodoPrecio.classList.add('card-text');
+            miNodoPrecio.textContent = `${info.precio}${divisa}`;
+            // Boton 
+            const miNodoBoton = document.createElement('button');
+            miNodoBoton.classList.add('btn', 'btn-primary');
+            miNodoBoton.textContent = '+';
+            miNodoBoton.setAttribute('marcador', info.id);
+            miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
+            // Insertamos
+            miNodoCardBody.appendChild(miNodoImagen);
+            miNodoCardBody.appendChild(miNodoTitle);
+            miNodoCardBody.appendChild(miNodoPrecio);
+            miNodoCardBody.appendChild(miNodoBoton);
+            miNodo.appendChild(miNodoCardBody);
+            DOMitems.appendChild(miNodo);
+        });
     }
-    else {
-        alert("Hola" + " " + nombreUsuario);
+
+    function anyadirProductoAlCarrito(evento) {
+        carrito.push(evento.target.getAttribute('marcador'))
+        renderizarCarrito();
+
     }
-    for (let i = 1; i <= 3; i++) {
-        let ingresarNombreProducto = prompt("Ingresar Nombre del Producto");
-        alert("Producto N° "+i+" Nombre: "+ingresarNombreProducto);
+
+
+    function renderizarCarrito() {
+        DOMcarrito.textContent = '';
+        const carritoSinDuplicados = [...new Set(carrito)];
+        carritoSinDuplicados.forEach((item) => {
+            const miItem = baseDeDatos.filter((itemBaseDatos) => {
+                return itemBaseDatos.id === parseInt(item);
+            });
+            const numeroUnidadesItem = carrito.reduce((total, itemId) => {
+                return itemId === item ? total += 1 : total;
+            }, 0);
+            const miNodo = document.createElement('li');
+            miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
+            miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${divisa}`;
+
+            const miBoton = document.createElement('button');
+            miBoton.classList.add('btn', 'btn-danger', 'mx-5');
+            miBoton.textContent = 'X';
+            miBoton.style.marginLeft = '1rem';
+            miBoton.dataset.item = item;
+            miBoton.addEventListener('click', borrarItemCarrito);
+
+            miNodo.appendChild(miBoton);
+            DOMcarrito.appendChild(miNodo);
+        });
+
+       DOMtotal.textContent = calcularTotal();
     }
-    
-    class CarritoDeCompras {
-        constructor() {
-            this.productos = []
-            this.name = ''
-            this.total = 0
-        }
-        setName(value) {
-            this.name = value
-        }
-    
-        addProduct(product) {
-            this.productos.push(product)
-        }
-    
-        removeLastProduct() {
-            this.productos.pop()
-        }
-    
-        removeFirstProduct() {
-            this.productos.shift()
-        }
-    
-        getTotal() {
-            for (const A of this.productos) {
-                console.log(A)
-                this.total = this.total + A.price
-            }
-        
-            
-    class Product {
-        constructor(name, price) {
-            this.name = name
-            this.price = price
-        }
+
+
+    function borrarItemCarrito(evento) {
+
+        const id = evento.target.dataset.item;
+
+        carrito = carrito.filter((carritoId) => {
+            return carritoId !== id;
+        });
+
+        renderizarCarrito();
     }
-    
-    const cliente = new CarritoDeCompras()
-    
-    const p1 = new Product('Resma', 400)
-    const p2 = new Product('cuadernos', 200)
-    const p3 = new Product('boligrafos', 100)
-    
-    cliente.addProduct(p1)
-    cliente.addProduct(p2)
-    cliente.addProduct(p3)
-    cliente.getTotal()
-}
-}
+
+
+    function calcularTotal() {
+
+        return carrito.reduce((total, item) => {
+
+            const miItem = baseDeDatos.filter((itemBaseDatos) => {
+                return itemBaseDatos.id === parseInt(item);
+            });
+
+            return total + miItem[0].precio;
+        }, 0).toFixed(2);
+    }
+
+
+    function vaciarCarrito() {
+
+        carrito = [];
+
+        renderizarCarrito();
+    }
+
+
+    DOMbotonVaciar.addEventListener('click', vaciarCarrito);
+
+
+    renderizarProductos();
+    renderizarCarrito();
+  });
+
