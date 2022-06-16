@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 1,
             nombre: 'Boligrafos',
             precio: 640,
-            imagen: "imagenes/boligrafos.jpg"
+            imagen: "imagenes/boligrafo.jpg"
         },
         {
             id: 2,
