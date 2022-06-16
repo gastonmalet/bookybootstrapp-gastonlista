@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 1,
             nombre: 'Boligrafos',
             precio: 640,
-            imagen: "imagenes/boligrafos.JPG"
+            imagen: "imagenes/boligrafos.jpg"
         },
         {
             id: 2,
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 3,
             nombre: 'Cuaderno Avon',
             precio: 312,
-            imagen: 'imagenes/cuaderno.JPG'
+            imagen: 'imagenes/cuaderno.jpg'
         },
 
     ];
