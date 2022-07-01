@@ -23,6 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     let carrito = [];
+
+    if(JSON.parse(localStorage.getItem('carrito')))  {
+        carrito = JSON.parse(localStorage.getItem('carrito'))
+    } else {
+        localStorage.setItem('carrito', JSON.stringify([]))
+        carrito = JSON.parse(localStorage.getItem('carrito'))
+    }
+
     const divisa = '$';
     const DOMitems = document.querySelector('#items');
     const DOMcarrito = document.querySelector('#carrito');
