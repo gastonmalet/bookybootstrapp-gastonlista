@@ -20,22 +20,19 @@ document.addEventListener('DOMContentLoaded', () => {
             imagen: 'imagenes/cuadern.jpg'
         },
 
-    ];
+    ]
+
+    //LocalStore+JSON del Array
+
+localStorage.setItem("baseDeDatos", JSON.stringify(baseDeDatos))
 
     let carrito = [];
-
-    if(JSON.parse(localStorage.getItem('carrito')))  {
-        carrito = JSON.parse(localStorage.getItem('carrito'))
-    } else {
-        localStorage.setItem('carrito', JSON.stringify([]))
-        carrito = JSON.parse(localStorage.getItem('carrito'))
-    }
-
     const divisa = '$';
     const DOMitems = document.querySelector('#items');
     const DOMcarrito = document.querySelector('#carrito');
     const DOMtotal = document.querySelector('#total');
     const DOMbotonVaciar = document.querySelector('#boton-vaciar');
+
 
     // Funciones
     function renderizarProductos() {
@@ -150,3 +147,15 @@ document.addEventListener('DOMContentLoaded', () => {
     renderizarCarrito();
   });
 
+  const showAlert = () => {
+    Swal.fire({
+        title: 'Cuidado',
+        text: 'Este es un error',
+        icon: 'error',
+        confirmButtonText: 'Cool' 
+    
+    })
+    }
+    
+    let button = document.getElementById('alert');
+    button.onclick = showAlert
