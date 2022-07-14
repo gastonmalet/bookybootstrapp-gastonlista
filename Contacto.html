@@ -24,7 +24,7 @@
         <a href="Home.html"><img src="imagenes/logo booky.png" alt="Libreria Booky" width="180px" /></a>
         </div> 
       
-      <div class="col-md-4 animate__animated animate__fadeIn animate__slower animate__infinite">
+      <div class="col-md-4 animate_animated animatefadeIn animateslower animate_infinite">
         <strong width="30px">LIBRERIA BOOKY</strong>
       </div>
         <div class="col-md-6 collapse navbar-collapse" id="navbarNav">
@@ -37,7 +37,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     </header> 
-      <form class="container-fluid">
+      <form id="form" class="container-fluid form"   action="https://formspree.io/f/xyyoqayl" method="POST">
         <section class="row">
           <div class="col-md-6">
             <div class="mb-3">
@@ -46,14 +46,17 @@
             </div>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Direccion de Email:</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <input type="email" name="email"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
           <div id="emailHelp" class="form-text">Nunca compartiremos tu direccion de Email</div>
+          <label for="exampleFormControlTextarea1" class="form-label" >Mensaje:</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" name="message" rows="3"></textarea>
+
         </div>
         <div class="mb-3 form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
           <label class="form-check-label" for="exampleCheck1">Confirmar</label>
         </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="submit" class="btn btn-primary" id="alert" type="button">Enviar</button>
         <button type="reset" class="btn btn-primary">Limpiar</button>
         </div>
 
@@ -85,6 +88,13 @@
 
         </section>
       </footer>
+
+      
+
+        <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+        <script src="js/email.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="js/correo.js"></script>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
