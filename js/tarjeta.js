@@ -9,7 +9,7 @@ const tarjeta = document.querySelector('#tarjeta'),
 	  yearExpiracion = document.querySelector('#tarjeta .year');
 	  ccv = document.querySelector('#tarjeta .ccv');
 
-// * Volteamos la tarjeta para mostrar el frente.
+// * Voltea la tarjeta para mostrar el frente.
 const mostrarFrente = () => {
 	if(tarjeta.classList.contains('active')){
 		tarjeta.classList.remove('active');
@@ -27,7 +27,7 @@ btnAbrirFormulario.addEventListener('click', () => {
 	formulario.classList.toggle('active');
 });
 
-// * Select del mes generado dinamicamente.
+// * Select del mes 
 for(let i = 1; i <= 12; i++){
 	let opcion = document.createElement('option');
 	opcion.value = i;
@@ -35,7 +35,7 @@ for(let i = 1; i <= 12; i++){
 	formulario.selectMes.appendChild(opcion);
 }
 
-// * Select del año generado dinamicamente.
+// * Select del año 
 const yearActual = new Date().getFullYear();
 for(let i = yearActual; i <= yearActual + 8; i++){
 	let opcion = document.createElement('option');
@@ -49,11 +49,11 @@ formulario.inputNumero.addEventListener('keyup', (e) => {
 	let valorInput = e.target.value;
 
 	formulario.inputNumero.value = valorInput
-	// Eliminamos espacios en blanco
+	// Elimina espacios en blanco
 	.replace(/\s/g, '')
-	// Eliminar las letras
+	// Elimina las letras
 	.replace(/\D/g, '')
-	// Ponemos espacio cada cuatro numeros
+	// Pone espacio cada cuatro numeros
 	.replace(/([0-9]{4})/g, '$1 ')
 	// Elimina el ultimo espaciado
 	.trim();
@@ -78,7 +78,7 @@ formulario.inputNumero.addEventListener('keyup', (e) => {
 		logoMarca.appendChild(imagen);
 	}
 
-	// Volteamos la tarjeta para que el usuario vea el frente.
+	// Volteamos la tarjeta
 	mostrarFrente();
 });
 
@@ -123,16 +123,3 @@ formulario.inputCCV.addEventListener('keyup', () => {
 
 	ccv.textContent = formulario.inputCCV.value;
 });
-
-const showAlert = () => {
-    Swal.fire({
-        title: 'Cuidado',
-        text: 'Este es un error',
-        icon: 'error',
-        confirmButtonText: 'Cool' 
-    
-    })
-    }
-    
-    let button = document.getElementById('alert');
-    button.onclick = showAlert
